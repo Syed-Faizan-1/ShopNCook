@@ -4,11 +4,12 @@ import { RecipeItemDetailComponent } from '../recipe-item-detail/recipe-item-det
 import { Recipe } from '../recipe.modal';
 import { NgIf } from '@angular/common';
 import { RecipeService } from '../recipe.service';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-recipes',
   standalone: true,
-  imports: [RecipeListComponent, RecipeItemDetailComponent, NgIf],
+  imports: [RecipeListComponent, RecipeItemDetailComponent, NgIf, RouterOutlet],
   templateUrl: './recipes.component.html',
   styleUrl: './recipes.component.css',
   providers: [RecipeService]

@@ -1,21 +1,21 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.modal';
 import { RecipeService } from '../recipe.service';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-item',
   standalone: true,
-  imports: [],
+  imports: [RouterLink,RouterLinkActive],
   templateUrl: './recipe-item.component.html',
   styleUrl: './recipe-item.component.css'
 })
-export class RecipeItemComponent {
-  @Input() recipe!: Recipe;
-  
-  constructor(private recipeService: RecipeService){}
+export class RecipeItemComponent implements OnInit {
+  recipe!: Recipe;
+  @Input() index!: number;
 
-  onClickRecipe(){
-    this.recipeService.selectedRecipe.emit(this.recipe);
+  constructor(private recipeService:RecipeService){}
+  ngOnInit() {
+    this.recipe = this.recipeService.getRecipe(this.index);
   }
-  
 }
