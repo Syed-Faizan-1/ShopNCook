@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeListComponent } from '../recipe-list/recipe-list.component';
 import { RecipeItemDetailComponent } from '../recipe-item-detail/recipe-item-detail.component';
-import { Recipe } from '../recipe.modal';
 import { NgIf } from '@angular/common';
 import { RecipeService } from '../recipe.service';
 import { RouterOutlet } from '@angular/router';
@@ -15,18 +14,7 @@ import { RouterOutlet } from '@angular/router';
   providers: [RecipeService]
 })
 export class RecipesComponent implements OnInit {
-  selectedRecipe!: Recipe;
-
-  constructor(private recipeService: RecipeService) { }
-  ngOnInit(): void {
-    this.recipeService.selectedRecipe.subscribe(
-      (recipe: Recipe) => {
-        this.selectedRecipe = recipe;
-      }
-    )
-  }
-
-  onRecipeWasSelected(recipe: Recipe) {
-    this.selectedRecipe = recipe;
+  constructor() { }
+  ngOnInit() {
   }
 }

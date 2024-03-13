@@ -14,9 +14,4 @@ import { DropdownDirective } from './shared/dropdown.directive';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  loadedFeature = 'Shopping List';
-  onNavigate(feature: string){
-    this.loadedFeature = feature;
-  }
-  
 }
