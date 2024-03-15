@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
   styleUrl: './shopping-list.component.css',
   providers: []
 })
-export class ShoppingListComponent implements OnInit,OnDestroy {
+export class ShoppingListComponent implements OnInit, OnDestroy {
   ingredients!: Ingredient[];
   private igChangedSub!: Subscription;
 
@@ -27,5 +27,9 @@ export class ShoppingListComponent implements OnInit,OnDestroy {
     this.igChangedSub = this.shoppingListService.ingredientsChanged.subscribe((ingredients: Ingredient[]) => {
       this.ingredients = ingredients;
     })
+  }
+
+  onEditItem(index: number) {
+    this.shoppingListService.startEdit.next(index);
   }
 }
