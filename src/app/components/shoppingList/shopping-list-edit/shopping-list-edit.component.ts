@@ -3,11 +3,12 @@ import { Ingredient } from '../../../shared/ingredient.modal';
 import { ShoppingListService } from '../shopping-list.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-shopping-list-edit',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,NgIf],
   templateUrl: './shopping-list-edit.component.html',
   styleUrl: './shopping-list-edit.component.css'
 })
@@ -48,5 +49,13 @@ export class ShoppingListEditComponent implements OnInit, OnDestroy {
     }
     this.editMode = false;
     this.slForm.reset();
+  }
+  onClear(){
+    this.slForm.reset();
+    this.editMode = false;
+  }
+  onDelete(){
+    this.shoppingListService.deleteIngredient(this.editedItemIndex);
+    this.onClear()
   }
 }
