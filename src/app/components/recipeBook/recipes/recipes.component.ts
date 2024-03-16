@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RecipeListComponent } from '../recipe-list/recipe-list.component';
 import { RecipeItemDetailComponent } from '../recipe-item-detail/recipe-item-detail.component';
 import { NgIf } from '@angular/common';
-import { RecipeService } from '../recipe.service';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -11,7 +10,7 @@ import { RouterOutlet } from '@angular/router';
   imports: [RecipeListComponent, RecipeItemDetailComponent, NgIf, RouterOutlet],
   templateUrl: './recipes.component.html',
   styleUrl: './recipes.component.css',
-  providers: [RecipeService]
+  providers: []
 })
 export class RecipesComponent implements OnInit {
   constructor() { }
