@@ -4,11 +4,12 @@ import { Ingredient } from '../../../shared/ingredient.modal';
 import { NgFor } from '@angular/common';
 import { ShoppingListService } from '../shopping-list.service';
 import { Subscription } from 'rxjs';
+import { SortPipe } from '../../../sort.pipe';
 
 @Component({
   selector: 'app-shopping-list',
   standalone: true,
-  imports: [ShoppingListEditComponent, NgFor],
+  imports: [ShoppingListEditComponent, NgFor, SortPipe],
   templateUrl: './shopping-list.component.html',
   styleUrl: './shopping-list.component.css',
   providers: []
