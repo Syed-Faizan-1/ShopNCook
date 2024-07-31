@@ -9,38 +9,14 @@ import { Subject } from 'rxjs';
 })
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
-  private recipes: Recipe[] = [
-    new Recipe(
-      'Broast',
-      'A Super Tasty Broast by my Mom',
-      'https://i.ytimg.com/vi/B8aNC_t3aTw/maxresdefault.jpg',
-      [
-        new Ingredient('Meat', 2),
-        new Ingredient('Garlic', 100)
-      ]
-    ),
-    new Recipe(
-      'Fried Fish',
-      'A Super Tasty Fried Fish by my Mom',
-      'https://soulfoodcooking101.com/wp-content/uploads/2023/05/Southern-Fried-Fish.jpeg',
-      [
-        new Ingredient('Fish', 2),
-        new Ingredient('Garlic', 7)
-      ]
-    ),
-    new Recipe(
-      'Burger',
-      'A Super Tasty Zinger Burger by my Mom',
-      'https://upload.wikimedia.org/wikipedia/commons/b/b0/Hamburger_%2812164386105%29.jpg',
-      [
-        new Ingredient('Meat', 10),
-        new Ingredient('Salad', 5)
-      ]
-    )
-  ];
+  private recipes: Recipe[] = [];
 
   getRecipes() {
     return this.recipes.slice();
+  }
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
   }
   getRecipe(id:number){
     return this.recipes[id];
